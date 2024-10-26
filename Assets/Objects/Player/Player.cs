@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] Candle candle_SCRIPT;
     float mouseSensitivity = 100f; // чувствительность выши
     float speedPlayer = 15.0f; // скорость игрока
     float xRotation = 0f;
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour
         {
             rigPlayer.AddForce(-transform.right * -speedPlayer);
         }
+        
     }
 
     void Control()
@@ -62,6 +64,11 @@ public class Player : MonoBehaviour
         transPlayer.Rotate(Vector3.up * mouseX);
 
         transCamera.localRotation = Quaternion.Euler(xRotation, 0f, 0f); // поворот камеры
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            candle_SCRIPT.CandleCoveredSwitch();
+        }
     }
 
     void InItPlayer()
