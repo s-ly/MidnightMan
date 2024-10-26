@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] Candle candle_SCRIPT;
+    [SerializeField] Hand hand_SCRIPT;
     float mouseSensitivity = 100f; // чувствительность выши
     float speedPlayer = 15.0f; // скорость игрока
     float xRotation = 0f;
@@ -68,6 +69,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             candle_SCRIPT.CandleCoveredSwitch();
+            hand_SCRIPT.HandCoverSwitch();
         }
     }
 

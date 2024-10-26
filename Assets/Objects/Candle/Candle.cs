@@ -9,7 +9,7 @@ public class Candle : MonoBehaviour
     int CandleTimer = 5;
     public bool candleCovered = false;
     float intensityHi = 160;
-    float intensityMiddle = 30;
+    float intensityMiddle = 15;
 
     // Start is called before the first frame update
     void Start()
