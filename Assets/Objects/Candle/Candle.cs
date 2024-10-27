@@ -5,6 +5,7 @@ using UnityEngine;
 public class Candle : MonoBehaviour
 {
     [SerializeField] Light LightCandle;
+    [SerializeField] ParticleSystem particleSystem;
     Coroutine timerCoroutine; // —сылка на корутину
     int CandleTimer = 5;
     public bool candleCovered = false;
@@ -26,6 +27,7 @@ public class Candle : MonoBehaviour
     public void CandleGoesOut()
     {
         LightCandle.enabled = false;
+        particleSystem.Stop();
     }
 
     private void OnTriggerEnter(Collider other)
