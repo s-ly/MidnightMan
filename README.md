@@ -4,7 +4,7 @@
 Версия Unity 2022.3.21f1  
 Управление: AWSD + E + Мышка.  
 ## Видео геймплея  
-[Геймлей на Яндек Диск](https://disk.yandex.ru/i/Rg3kP-RqQBQecQ)  
+[Геймлей на Яндек Диск](https://disk.yandex.ru/i/ejhf39YiDqkY4A)  
 ## Скриншоты  
 ![Текст с описанием картинки](img_readme/img_1.jpg)  
 ![Текст с описанием картинки](img_readme/img_2.jpg)  
