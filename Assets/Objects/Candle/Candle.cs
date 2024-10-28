@@ -6,11 +6,11 @@ public class Candle : MonoBehaviour
 {
     [SerializeField] Light LightCandle;
     [SerializeField] ParticleSystem particleSystem;
-    Coroutine timerCoroutine; // Ссылка на корутину
+    Coroutine timerCoroutine; // Ссылка на корутину (ветер)
     int CandleTimer = 5;
     public bool candleCovered = false;
-    float intensityHi = 160;
-    float intensityMiddle = 15;
+     float intensityHi = 160;
+     float intensityMiddle = 15;
 
     // Start is called before the first frame update
     void Start()
@@ -90,6 +90,26 @@ public class Candle : MonoBehaviour
         CandleGoesOut();
     }
 
+    IEnumerator TimerCoroutineCoverLight()
+    {
+        for (float i = intensityHi; i >= intensityMiddle; i-=5)
+        {
+            LightCandle.intensity = i;
+            Debug.Log("intensity candle: " + i);
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+    IEnumerator TimerCoroutineOpenLight()
+    {
+        for (float i = intensityMiddle; i <= intensityHi; i += 5)
+        {
+            LightCandle.intensity = i;
+            Debug.Log("intensity candle: " + i);
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
     void StopTimerCoroutine()
     {
         // Проверяем, запущена ли корутина, и останавливаем ее
@@ -110,12 +130,14 @@ public class Candle : MonoBehaviour
         
         if (candleCovered)
         {            
-            LightCandle.intensity = intensityMiddle;
+            //LightCandle.intensity = intensityMiddle;
             StopTimerCoroutine();
+            _ = StartCoroutine(TimerCoroutineCoverLight());            
         }
         else
         {
             LightCandle.intensity = intensityHi;
+            _ = StartCoroutine(TimerCoroutineOpenLight());
         }
     }
 }
